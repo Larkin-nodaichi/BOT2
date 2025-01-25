@@ -1,13 +1,19 @@
 import numpy as np
 import pandas as pd
+import sys
+
 try:
     import matplotlib.pyplot as plt
 except ImportError:
-    raise ImportError("Matplotlib is not installed. Please install it using `pip install matplotlib`.")
+    sys.stderr.write("Matplotlib is not installed. Please install it using `pip install matplotlib`.\n")
+    sys.exit(1)
+
 try:
     import seaborn as sns
 except ImportError:
-    raise ImportError("Seaborn is not installed. Please install it using `pip install seaborn`.")
+    sys.stderr.write("Seaborn is not installed. Please install it using `pip install seaborn`.\n")
+    sys.exit(1)
+
 from sklearn.model_selection import train_test_split, cross_val_score
 from sklearn.preprocessing import StandardScaler
 from sklearn.ensemble import RandomForestClassifier
